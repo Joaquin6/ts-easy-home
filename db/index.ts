@@ -1,7 +1,7 @@
-import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
+import { Sequelize } from 'sequelize';
 import config from '../config/database';
 
-let sequelize: SequelizeInstance;
+let sequelize: Sequelize;
 
 export const connect = () => {
   if (sequelize) {

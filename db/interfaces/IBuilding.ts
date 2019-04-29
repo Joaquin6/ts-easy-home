@@ -1,12 +1,12 @@
 import Sequelize from 'sequelize';
 
-export interface IBuildingAttrs {
+export interface BuildingAttrs {
   id?: number;
   name?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export default interface IBuilding extends Sequelize.Instance<IBuildingAttrs>, IBuildingAttrs {}
+export default interface Building extends Sequelize.Instance<BuildingAttrs>, BuildingAttrs {}
 
-export interface IBuildingModel extends Sequelize.Model<IBuilding, IBuildingAttrs> { }
+export interface BuildingModel extends Sequelize.Model<Building, BuildingAttrs> { }

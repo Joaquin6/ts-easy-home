@@ -1,9 +1,8 @@
 import Sequelize from 'sequelize';
+import sequelize from '../../db/index';
+import { Building, BuildingAttrs, BuildingModel } from './building.interface';
 
-import sequelize from '../index';
-import Building, { BuildingAttrs } from '../interfaces/IBuilding';
-
-export default sequelize.define<Building, BuildingAttrs>('BuildingModel', {
+export const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('BuildingModel', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -21,3 +20,5 @@ export default sequelize.define<Building, BuildingAttrs>('BuildingModel', {
     type: Sequelize.DATE,
   },
 });
+
+export default buildingModel;

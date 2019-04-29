@@ -23,7 +23,7 @@ export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic): 
     },
   });
 
-export const down = (queryInterface: QueryInterface, _sequelize: SequelizeStatic): Bluebird<void> =>
+export const down = (queryInterface: QueryInterface): Bluebird<void> =>
   queryInterface.dropTable('buildings');
 
-export default { up, down }
+export default { up, down };
