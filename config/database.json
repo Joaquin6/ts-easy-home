@@ -1,0 +1,14 @@
+{
+  "development": {
+    "dialect": "sqlite",
+    "storage": "easyhome.sqlite"
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "easyhome.sqlite"
+  },
+  "production": {
+    "dialect": "sqlite",
+    "storage": "easyhome.sqlite"
+  }
+}
