@@ -1,7 +1,7 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
-import * as mongoose from 'mongoose';
+import * as sequelize from '../db/index';
 import Controller from './interfaces/controller.interface';
 import errorMiddleware from './middleware/error.middleware';
 
@@ -43,12 +43,9 @@ class App {
   }
 
   private connectToTheDatabase() {
-    const {
-      MONGO_USER,
-      MONGO_PASSWORD,
-      MONGO_PATH,
-    } = process.env;
-    mongoose.connect(`mongodb://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`);
+    const db = sequelize.connect();
+
+    this.app.set('db', db);
   }
 }
 
