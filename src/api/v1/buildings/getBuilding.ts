@@ -1,8 +1,9 @@
+import * as express from 'express';
 import HttpError from 'standard-http-error';
 
 const { message } = new HttpError(500);
 
-export default async function getBuilding(req: any, res: any, next: any) {
+export default async function getBuilding(req: express.Request, res: express.Response, next: express.NextFunction) {
   const db = req.app.get('db');
   const { id } = req.params;
 
@@ -13,7 +14,6 @@ export default async function getBuilding(req: any, res: any, next: any) {
     }
     return res.json(locatedBuilding);
   } catch (error) {
-    req.log.error(error);
     return res.status(500).json({ message });
   }
 }

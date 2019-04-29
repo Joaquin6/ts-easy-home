@@ -1,11 +1,11 @@
-import { Router } from 'express';
+import * as express from 'express';
 
-import validator from './validator';
+import createBuilding from './createBuilding';
 import getBuilding from './getBuilding';
 import getBuildings from './getBuildings';
-import createBuilding from './createBuilding';
+import validator from './validator';
 
-const buildings = new Router();
+const buildings = express.Router();
 
 buildings.route('/')
   .get(getBuildings)
