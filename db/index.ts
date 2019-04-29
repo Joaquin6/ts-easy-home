@@ -1,6 +1,6 @@
-import Sequelize from "sequelize";
+import Sequelize from 'sequelize';
 
-import config from "../config/database";
+import config from '../config/database';
 
 const sequelize = new Sequelize(`${ config.dialect }://${ config.storage }`);
 

@@ -3,7 +3,7 @@
     "baseUrl": "./",
     "outDir": "./dist/",
     "sourceMap": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -36,6 +36,7 @@
   },
   "exclude": [
     "dist",
-    "test"
+    "test",
+    "node_modules"
   ]
 }

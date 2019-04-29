@@ -1,5 +1,5 @@
-import app from 'src/app';
-import db from 'db';
+import app from './src/app';
+import db from './db';
 
 (async () => {
   try {

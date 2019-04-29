@@ -1,1 +1,1 @@
-export * from './building';
+export { default as Building } from './building';

@@ -2,7 +2,7 @@ import HttpError from 'standard-http-error';
 
 const { message } = new HttpError(500);
 
-module.exports = async function getBuilding(req: any, res: any, next: any) {
+export default async function getBuilding(req: any, res: any, next: any) {
   const db = req.app.get('db');
   const { id } = req.params;
 
@@ -16,4 +16,4 @@ module.exports = async function getBuilding(req: any, res: any, next: any) {
     req.log.error(error);
     return res.status(500).json({ message });
   }
-};
+}

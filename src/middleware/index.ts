@@ -3,7 +3,7 @@ import Joi from 'joi';
 
 import addRequestValidator from './requestValidator';
 
-export * from './bunyan';
-export * from './addConfigToRequest';
+export { default as bunyan } from './bunyan';
+export { default as addConfigToRequest } from './addConfigToRequest';
 
 export const requestValidator = addRequestValidator({ Joi });

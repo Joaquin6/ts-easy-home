@@ -1,8 +1,9 @@
-import { Router } from 'express';
+import * as express from 'express';
 import status from './status';
 import v1 from './api/v1';
 
-const routes = Router();
+const routes = express.Router();
+
 routes.use('/status', status);
 routes.use('/v1', v1);
 

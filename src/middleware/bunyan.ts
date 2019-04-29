@@ -3,9 +3,6 @@ import bunyan from 'express-bunyan-logger';
 import config from '../../config';
 
 export default bunyan({
-  includesFn: (req: any) => ({
-    correlationId: req.correlationId,
-  }),
   excludes: [
     'body',
     'req',

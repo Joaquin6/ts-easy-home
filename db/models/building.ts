@@ -1,18 +1,18 @@
 import Sequelize from "sequelize";
 import sequelize from "..";
 
-export interface BuildingAttrs {
+export interface IBuildingAttrs {
   id?: number;
   name?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
 
-export interface Building extends Sequelize.Instance<BuildingAttrs>, BuildingAttrs {}
+export interface IBuilding extends Sequelize.Instance<IBuildingAttrs>, IBuildingAttrs {}
 
-export interface BuildingModel extends Sequelize.Model<Building, BuildingAttrs> { }
+export interface IBuildingModel extends Sequelize.Model<IBuilding, IBuildingAttrs> { }
 
-export const Building: BuildingModel = sequelize.define<Building, BuildingAttrs>("buildings", {
+export default sequelize.define<IBuilding, IBuildingAttrs>("buildings", {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,

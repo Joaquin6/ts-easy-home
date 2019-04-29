@@ -1,11 +1,11 @@
-import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import express from 'express';
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import helmet from 'helmet';
 
 import routes from './routes';
 import { addConfigToRequest, bunyan } from './middleware';
-import { Building } from "./building/model";
+// import { Building } from '../db/models';
 import config from '../config';
 
 export const DEFAULT_ERROR_MESSAGE = 'There was a problem with your request. Please try again later';
@@ -39,14 +39,15 @@ app.use(addConfigToRequest(config));
 app.use('/', routes);
 
 // Catch 404 and forward to error handler
-app.use((req: any, res: any, next: any) => {
+app.use((_req: express.Request, _res: express.Response, next) => {
   const err = new Error('Not Found');
   err.status = 404;
+
   next(err);
 });
 
 // Error handler
-app.use((err: any, req: any, res: any, next: any) => { // eslint-disable-line no-unused-vars
+app.use((err, req: express.Request, res: express.Response, next) => { // eslint-disable-line no-unused-vars
   req.log.error(err || 'undefined error');
 
   if (res.headersSent) {
