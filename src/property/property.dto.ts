@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsArray, IsString } from 'class-validator';
 
 class CreatePropertyDto {
   @IsString()
@@ -9,6 +9,9 @@ class CreatePropertyDto {
 
   @IsString()
   public name?: string;
+
+  @IsArray()
+  public units?: object[];
 }
 
 export default CreatePropertyDto;

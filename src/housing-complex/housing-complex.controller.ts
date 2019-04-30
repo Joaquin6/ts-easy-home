@@ -6,7 +6,7 @@ import CreateHousingComplexDto from './housing-complex.dto';
 import housingComplexModel from './housing-complex.model';
 
 class HousingComplexController implements Controller {
-  public path = '/housing-complex';
+  public path = '/housing';
   public router = express.Router();
   private housingComplex = housingComplexModel;
 
@@ -17,7 +17,7 @@ class HousingComplexController implements Controller {
   private initializeRoutes() {
     this.router
       .get(this.path, this.getAllHousingComplex)
-      .post(this.path, validationMiddleware(CreateHousingComplexDto), this.createHousingcOMPLEX);
+      .post(this.path, validationMiddleware(CreateHousingComplexDto), this.createHousingComplex);
 
     this.router.get(`${this.path}/:id`, this.getHousingComplexById);
   }
@@ -39,7 +39,7 @@ class HousingComplexController implements Controller {
     }
   }
 
-  private createHousingcOMPLEX = async (request: express.Request, response: express.Response) => {
+  private createHousingComplex = async (request: express.Request, response: express.Response) => {
     const housingComplexData: CreateHousingComplexDto = request.body;
     const createdHousingComplex = await this.housingComplex.create(housingComplexData);
 

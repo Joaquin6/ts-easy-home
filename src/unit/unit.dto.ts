@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsDate, IsNumber, IsString } from 'class-validator';
 
 class CreateUnitDto {
   @IsNumber()
@@ -9,6 +9,12 @@ class CreateUnitDto {
 
   @IsString()
   public type?: string;
+
+  @IsDate()
+  public createdAt?: Date;
+
+  @IsDate()
+  public updatedAt?: Date;
 }
 
 export default CreateUnitDto;

@@ -2,9 +2,8 @@ import Sequelize from 'sequelize';
 
 import sequelize from '../index';
 import HousingComplex, { HousingComplexAttrs, HousingComplexModel } from '../interfaces/IHousingComplex';
-import Unit from './unit';
 
-const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex, HousingComplexAttrs>('HousingComplexModel', {
+const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex, HousingComplexAttrs>('housing-complex', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -28,7 +27,5 @@ const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex
     type: Sequelize.DATE,
   },
 });
-
-housingComplexModel.hasMany(Unit);
 
 export default housingComplexModel;

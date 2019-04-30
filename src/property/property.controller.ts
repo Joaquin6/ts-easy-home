@@ -10,7 +10,7 @@ import validationMiddleware from '../middleware/validation.middleware';
 import unitModel from '../unit/unit.model';
 
 class PropertyController implements Controller {
-  public path = '/';
+  public path = '/properties';
   public router = express.Router();
   private unit = unitModel;
   private building = buildingModel;

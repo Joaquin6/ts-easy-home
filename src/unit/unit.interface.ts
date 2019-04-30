@@ -4,6 +4,8 @@ export interface UnitAttrs {
   id?: number;
   name?: string;
   type?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export interface Unit extends Sequelize.Instance<UnitAttrs>, UnitAttrs {}

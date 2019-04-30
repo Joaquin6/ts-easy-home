@@ -4,7 +4,7 @@ import { Unit, UnitAttrs, UnitModel } from './unit.interface';
 
 const sequelize: SequelizeInstance = db || connect();
 
-const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('UnitModel', {
+const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('unit', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -18,6 +18,9 @@ const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('UnitModel', {
   type: {
     allowNull: false,
     type: Sequelize.STRING,
+  },
+  updatedAt: {
+    type: Sequelize.DATE,
   },
 });
 

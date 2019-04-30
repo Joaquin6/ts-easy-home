@@ -22,7 +22,7 @@ class UnitController implements Controller {
     this.router.get(`${this.path}/:id`, this.getUnitById);
   }
 
-  private getAllUnits = async (request: express.Request, response: express.Response) => {
+  private getAllUnits = async (_: express.Request, response: express.Response) => {
     const units = await this.unit.findAll();
 
     response.send(units);
