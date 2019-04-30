@@ -1,10 +1,10 @@
 import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
 import db, { connect } from '../../db/index';
-import { Building, BuildingAttrs, BuildingModel } from './building.interface';
+import HousingComplex, { HousingComplexAttrs, HousingComplexModel } from './housing-complex.interface';
 
 const sequelize: SequelizeInstance = db || connect();
 
-const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('BuildingModel', {
+const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex, HousingComplexAttrs>('HousingComplexModel', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -24,6 +24,9 @@ const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('
   updatedAt: {
     type: Sequelize.DATE,
   },
+  constructionDate: {
+    type: Sequelize.DATE,
+  },
 });
 
-export default buildingModel;
+export default housingComplexModel;

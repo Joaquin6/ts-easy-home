@@ -3,6 +3,7 @@ import Sequelize from 'sequelize';
 export interface BuildingAttrs {
   id?: number;
   name?: string;
+  city?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }

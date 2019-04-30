@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 
 import sequelize from '../index';
-import Building, { BuildingAttrs } from '../interfaces/IBuilding';
+import HousingComplex, { HousingComplexAttrs } from '../interfaces/IHousingComplex';
 
-export default sequelize.define<Building, BuildingAttrs>('BuildingModel', {
+export default sequelize.define<HousingComplex, HousingComplexAttrs>('HousingComplexModel', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -14,13 +14,16 @@ export default sequelize.define<Building, BuildingAttrs>('BuildingModel', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  city: {
+    type: Sequelize.STRING,
+  },
   createdAt: {
     type: Sequelize.DATE,
   },
   updatedAt: {
     type: Sequelize.DATE,
   },
-  city: {
-    type: Sequelize.STRING,
+  constructionDate: {
+    type: Sequelize.DATE,
   },
 });

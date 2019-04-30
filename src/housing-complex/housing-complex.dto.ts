@@ -1,6 +1,6 @@
 import { IsDate, IsNumber, IsString } from 'class-validator';
 
-class CreateBuildingDto {
+class CreateHousingComplexDto {
   @IsNumber()
   public id?: number;
 
@@ -15,6 +15,9 @@ class CreateBuildingDto {
 
   @IsDate()
   public updatedAt?: Date;
+
+  @IsDate()
+  public constructionDate?: Date;
 }
 
-export default CreateBuildingDto;
+export default CreateHousingComplexDto;
