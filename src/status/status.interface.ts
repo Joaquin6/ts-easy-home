@@ -1,14 +1,14 @@
 interface Status {
-  heapTotal: string | number;
-  heapUsage: string | number;
-  memoryUsage: string | number;
+  heapTotal: number;
+  heapUsage: number;
+  memoryUsage: number;
   name: string;
-  pid: string | number;
-  rss: string | number;
-  runId: string | number;
-  hostname: string | number;
+  pid: number;
+  rss: number;
+  runId: string;
+  hostname: string;
   load: number[];
-  uptime: string | number;
+  uptime: number;
 }
 
 export default Status;

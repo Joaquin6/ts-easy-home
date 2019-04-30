@@ -1,8 +1,10 @@
-import Sequelize from 'sequelize';
-import sequelize from '../../db/index';
+import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
+import db, { connect } from '../../db/index';
 import { Building, BuildingAttrs, BuildingModel } from './building.interface';
 
-export const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('BuildingModel', {
+const sequelize: SequelizeInstance = db || connect();
+
+const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('BuildingModel', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,

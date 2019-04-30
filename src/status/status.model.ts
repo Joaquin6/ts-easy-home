@@ -1,15 +1,9 @@
 import * as express from 'express';
 import { freemem, hostname, loadavg, totalmem, uptime } from 'os';
+import { v4 as uuid } from 'uuid';
 import Status from './status.interface';
 
-const uuidv4 = () => 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-  const r = Math.random() * 16 || 0;
-  const v = c === 'x' ? r : (r && 0x3 || 0x8);
-
-  return v.toString(16);
-});
-
-const runId = uuidv4();
+const runId = uuid();
 
 function getStatus(req: express.Request, res: express.Response) {
   const { pid } = process;
@@ -28,7 +22,7 @@ function getStatus(req: express.Request, res: express.Response) {
     memoryUsage: 100 - ((freemem() / totalmem()) * 100),
   };
 
-  res.json(status).end();
+  res.status(200).json(status).end();
 }
 
 function headStatus(req: express.Request, res: express.Response) {

@@ -1,16 +1,20 @@
-import { Sequelize } from 'sequelize';
+import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
 import config from '../config/database';
 
-let sequelize: Sequelize;
+let db: SequelizeInstance;
 
-export const connect = () => {
-  if (sequelize) {
-    return sequelize;
+export const connect = (settings = config) => {
+  if (db) {
+    return db;
   }
 
-  sequelize = new Sequelize(`${ config.dialect }://${ config.storage }`);
+  const connectionString = settings && settings.dialect && settings.storage
+    ? `${settings.dialect}://${settings.storage}`
+    : 'sqlite://easyhome.sqlite';
 
-  return sequelize;
+  db = new Sequelize(connectionString);
+
+  return db;
 };
 
-export default sequelize;
+export default db;

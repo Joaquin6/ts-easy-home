@@ -1,17 +1,24 @@
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
+import { Sequelize } from 'sequelize';
 import * as sequelize from '../db/index';
+import Config, { DBConfig } from './interfaces/config.interface';
 import Controller from './interfaces/controller.interface';
 import errorMiddleware from './middleware/error.middleware';
 
 class App {
   public app: express.Application;
+  public database: Sequelize;
 
-  constructor(controllers: Controller[]) {
+  constructor(config: Config) {
     this.app = express();
+    this.app.set('config', config);
 
-    this.connectToTheDatabase();
+    this.connectToTheDatabase(config.database);
+  }
+
+  public initialize(controllers: Controller[]) {
     this.initializeMiddlewares();
     this.initializeControllers(controllers);
     this.initializeErrorHandling();
@@ -42,10 +49,10 @@ class App {
     });
   }
 
-  private connectToTheDatabase() {
-    const db = sequelize.connect();
+  private async connectToTheDatabase(config: DBConfig) {
+    this.database = sequelize.connect(config);
 
-    this.app.set('db', db);
+    this.app.set('database', this.database);
   }
 }
 
