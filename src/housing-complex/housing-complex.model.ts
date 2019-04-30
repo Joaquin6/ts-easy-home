@@ -1,5 +1,7 @@
 import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
+
 import db, { connect } from '../../db/index';
+import Unit from '../unit/unit.model';
 import HousingComplex, { HousingComplexAttrs, HousingComplexModel } from './housing-complex.interface';
 
 const sequelize: SequelizeInstance = db || connect();
@@ -28,5 +30,7 @@ const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex
     type: Sequelize.DATE,
   },
 });
+
+housingComplexModel.hasMany(Unit);
 
 export default housingComplexModel;

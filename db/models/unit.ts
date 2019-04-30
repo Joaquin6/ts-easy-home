@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 
 import sequelize from '../index';
-import Unit, { UnitAttrs } from '../interfaces/IUnit';
+import Unit, { UnitAttrs, UnitModel } from '../interfaces/IUnit';
 
-export default sequelize.define<Unit, UnitAttrs>('UnitModel', {
+const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('UnitModel', {
   id: {
     type: Sequelize.INTEGER,
     allowNull: false,
@@ -19,3 +19,5 @@ export default sequelize.define<Unit, UnitAttrs>('UnitModel', {
     allowNull: false,
   },
 });
+
+export default unitModel;

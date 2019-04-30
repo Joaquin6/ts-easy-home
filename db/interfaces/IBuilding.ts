@@ -8,6 +8,6 @@ export interface BuildingAttrs {
   city?: string;
 }
 
-export default interface Building extends Sequelize.Instance<BuildingAttrs>, BuildingAttrs {}
+export interface Building extends Sequelize.Instance<BuildingAttrs>, BuildingAttrs {}
 
 export interface BuildingModel extends Sequelize.Model<Building, BuildingAttrs> { }
