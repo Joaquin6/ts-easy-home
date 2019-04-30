@@ -15,6 +15,12 @@ class CreateUnitDto {
 
   @IsDate()
   public updatedAt?: Date;
+
+  @IsNumber()
+  public buildingId?: number;
+
+  @IsNumber()
+  public housingComplexId?: number;
 }
 
 export default CreateUnitDto;

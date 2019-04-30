@@ -1,10 +1,9 @@
-import Bluebird from 'bluebird';
-import Sequelize, { QueryInterface, SequelizeStatic } from 'sequelize';
+import { QueryInterface, SequelizeStatic } from 'sequelize';
 
-export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic): Bluebird<void> =>
-  queryInterface.addColumn('buildings', 'city', Sequelize.STRING);
+export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic) =>
+  queryInterface.addColumn('buildings', 'city', sequelize.STRING);
 
-export const down = (queryInterface: QueryInterface): Bluebird<void> =>
+export const down = (queryInterface: QueryInterface) =>
   queryInterface.removeColumn('buildings', 'city');
 
 export default { up, down };

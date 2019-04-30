@@ -22,6 +22,12 @@ const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('unit', {
   updatedAt: {
     type: Sequelize.DATE,
   },
+  buildingId: {
+    type: Sequelize.INTEGER,
+  },
+  housingComplexId: {
+    type: Sequelize.INTEGER,
+  },
 });
 
 export default unitModel;

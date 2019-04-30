@@ -1,19 +1,5 @@
 import { QueryInterface } from 'sequelize';
-
-const baseData = {
-  createdAt: new Date(),
-  updatedAt: new Date(),
-  constructionDate: new Date(),
-};
-const housingComplex = [{
-  ...baseData,
-  name: 'Sunny Suites',
-  city: 'Los Angeles',
-}, {
-  ...baseData,
-  name: 'Stormy Suites',
-  city: 'Los Angeles',
-}];
+import { housingComplex } from '../models/housing-complex';
 
 export const up = (queryInterface: QueryInterface) =>
   queryInterface.bulkInsert('housing-complexes', housingComplex, {});

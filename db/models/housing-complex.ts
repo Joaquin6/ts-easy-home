@@ -1,7 +1,10 @@
-import Sequelize from 'sequelize';
+import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
 
-import sequelize from '../index';
+import db, { connect } from '../index';
 import HousingComplex, { HousingComplexAttrs, HousingComplexModel } from '../interfaces/IHousingComplex';
+import Unit from './unit';
+
+const sequelize: SequelizeInstance = db || connect();
 
 const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex, HousingComplexAttrs>('housing-complex', {
   id: {
@@ -28,4 +31,24 @@ const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex
   },
 });
 
+housingComplexModel.hasMany(Unit);
+
 export default housingComplexModel;
+
+const baseData = {
+  createdAt: new Date(),
+  updatedAt: new Date(),
+  constructionDate: new Date(),
+};
+
+export const housingComplex = [{
+  ...baseData,
+  id: 567,
+  name: 'Sunny Suites',
+  city: 'Los Angeles',
+}, {
+  ...baseData,
+  id: 568,
+  name: 'Stormy Suites',
+  city: 'Los Angeles',
+}];

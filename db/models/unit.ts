@@ -1,7 +1,9 @@
-import Sequelize from 'sequelize';
+import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
 
-import sequelize from '../index';
+import db, { connect } from '../index';
 import Unit, { UnitAttrs, UnitModel } from '../interfaces/IUnit';
+
+const sequelize: SequelizeInstance = db || connect();
 
 const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('unit', {
   id: {
@@ -23,6 +25,12 @@ const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('unit', {
   },
   updatedAt: {
     type: Sequelize.DATE,
+  },
+  buildingId: {
+    type: Sequelize.INTEGER,
+  },
+  housingComplexId: {
+    type: Sequelize.INTEGER,
   },
 });
 

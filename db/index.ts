@@ -1,9 +1,13 @@
 import Sequelize, { Sequelize as SequelizeInstance } from 'sequelize';
-import config from '../config/database';
 
 let sequelize: SequelizeInstance;
 
-export const connect = (settings = config) => {
+interface DBConfig {
+  dialect: string;
+  storage: string;
+}
+
+export const connect = (settings?: DBConfig) => {
   if (sequelize) {
     return sequelize;
   }

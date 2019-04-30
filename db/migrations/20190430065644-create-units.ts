@@ -24,6 +24,12 @@ export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic) =
       type: sequelize.DATE,
       allowNull: true,
     },
+    buildingId: {
+      type: sequelize.INTEGER,
+    },
+    housingComplexId: {
+      type: sequelize.INTEGER,
+    },
   });
 
 export const down = (queryInterface: QueryInterface) =>

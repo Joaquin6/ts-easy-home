@@ -1,7 +1,6 @@
-import Bluebird from 'bluebird';
 import { QueryInterface, SequelizeStatic } from 'sequelize';
 
-export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic): Bluebird<void> =>
+export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic) =>
   queryInterface.createTable('housing-complexes', {
     id: {
       allowNull: false,
@@ -31,7 +30,7 @@ export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic): 
     },
   });
 
-export const down = (queryInterface: QueryInterface): Bluebird<void> =>
+export const down = (queryInterface: QueryInterface) =>
   queryInterface.dropTable('housing-complexes');
 
 export default { up, down };
