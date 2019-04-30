@@ -8,12 +8,14 @@ import buildingModel from '../building/building.model';
 import housingComplexModel from '../housing-complex/housing-complex.model';
 import validationMiddleware from '../middleware/validation.middleware';
 import unitModel from '../unit/unit.model';
+import propertyModel from './property.model';
 
 class PropertyController implements Controller {
   public path = '/properties';
   public router = express.Router();
   private unit = unitModel;
   private building = buildingModel;
+  private property = propertyModel;
   private housingComplex = housingComplexModel;
 
   constructor() {
@@ -31,9 +33,8 @@ class PropertyController implements Controller {
   private getAllProperties = async (request: express.Request, response: express.Response) => {
     const buildings = await this.building.findAll();
     const housingComplex = await this.housingComplex.findAll();
-    const units = await this.unit.findAll();
 
-    const properties = buildings.concat(housingComplex);
+    const properties = this.property.groupByCity(buildings, housingComplex);
 
     response.send(properties);
   }

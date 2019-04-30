@@ -29,6 +29,16 @@ const housingComplexModel: HousingComplexModel = sequelize.define<HousingComplex
   constructionDate: {
     type: Sequelize.DATE,
   },
+},                                                                                                     {
+  scopes: {
+    associatedUnits (id: number) {
+      return {
+        include: [{
+          model: Unit.scope({ method: ['onlyHousingById', id] }),
+        }],
+      };
+    },
+  },
 });
 
 housingComplexModel.hasMany(Unit);

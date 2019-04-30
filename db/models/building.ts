@@ -26,6 +26,16 @@ const buildingModel: BuildingModel = sequelize.define<Building, BuildingAttrs>('
   city: {
     type: Sequelize.STRING,
   },
+},                                                                             {
+  scopes: {
+    associatedUnits (id: number) {
+      return {
+        include: [{
+          model: Unit.scope({ method: ['onlyBuildingById', id] }),
+        }],
+      };
+    },
+  },
 });
 
 buildingModel.hasMany(Unit);

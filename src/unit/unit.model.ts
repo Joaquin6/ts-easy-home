@@ -28,6 +28,21 @@ const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('unit', {
   housingComplexId: {
     type: Sequelize.INTEGER,
   },
+},                                                             {
+  scopes: {
+    onlyBuildings: {
+      where: { type: 'building' },
+    },
+    onlyHousing: {
+      where: { type: 'housing-complex' },
+    },
+    onlyBuildingById (id: number) {
+      return { where: { buildingId: id } };
+    },
+    onlyHousingById (id: number) {
+      return { where: { housingComplexId: id } };
+    },
+  },
 });
 
 export default unitModel;
