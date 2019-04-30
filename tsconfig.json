@@ -11,6 +11,11 @@
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true
   },
+  "exclude": [
+    "dist",
+    "tests",
+    "node_modules"
+  ],
   "include": [
     "db/**/*.ts",
     "src/**/*.ts",
