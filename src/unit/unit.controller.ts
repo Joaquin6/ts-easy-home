@@ -6,7 +6,7 @@ import CreateUnitDto from './unit.dto';
 import unitModel from './unit.model';
 
 class UnitController implements Controller {
-  public path = '/Units';
+  public path = '/units';
   public router = express.Router();
   private unit = unitModel;
 

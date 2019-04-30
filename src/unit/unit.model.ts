@@ -15,6 +15,10 @@ const unitModel: UnitModel = sequelize.define<Unit, UnitAttrs>('UnitModel', {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  type: {
+    allowNull: false,
+    type: Sequelize.STRING,
+  },
 });
 
 export default unitModel;

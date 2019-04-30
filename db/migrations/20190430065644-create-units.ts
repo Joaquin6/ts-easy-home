@@ -13,6 +13,10 @@ export const up = (queryInterface: QueryInterface, sequelize: SequelizeStatic): 
       allowNull: false,
       type: sequelize.STRING,
     },
+    type: {
+      allowNull: false,
+      type: sequelize.STRING,
+    },
   });
 
 export const down = (queryInterface: QueryInterface): Bluebird<void> =>

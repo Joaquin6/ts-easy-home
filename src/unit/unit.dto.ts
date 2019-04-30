@@ -6,6 +6,9 @@ class CreateUnitDto {
 
   @IsString()
   public name?: string;
+
+  @IsString()
+  public type?: string;
 }
 
 export default CreateUnitDto;
